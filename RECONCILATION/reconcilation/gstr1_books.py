@@ -14,6 +14,11 @@ def format_date_columns(df, columns):
         df[col] = pd.to_datetime(df[col], errors='coerce')
     return df
 
+def clean_numeric_data(df, numeric_cols):
+    for col in numeric_cols:
+        df[col] = pd.to_numeric(df[col], errors='coerce')
+    return df
+
 class GSTR1BooksReconciliation:
     """Class to handle reconciliation between GSTR-1 and Books (Sales Register)"""
     
